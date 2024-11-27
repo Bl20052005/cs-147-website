@@ -22,7 +22,7 @@ function StartExercise() {
     await start_exercise();
     setTimeout(async () => {
       await stop_exercise();
-    }, 5000);
+    }, c);
   }
 
   return (

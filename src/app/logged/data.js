@@ -19,14 +19,15 @@ function Data({ data }) {
   console.log(data);
   function turn_date_to_str(date) {
     let d = new Date(date);
-    return `${
-      months[d.getMonth()]
-    } ${d.getDate()}, ${d.getFullYear()} at ${d.getHours()}:${d.getMinutes()} - `;
+    return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} at ${d
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${d.getMinutes().toString().padStart(2, "0")} - `;
   }
 
   function isAcheived(start, end, cal) {
-    t = 0;
-    for (el of data?.data) {
+    let t = 0;
+    for (let el of data?.data) {
       if (
         (el["start_time"] >= start && el["start_time"] <= end) ||
         (el["end_time"] >= start && el["end_time"] <= end)
@@ -59,10 +60,17 @@ function Data({ data }) {
         {data?.goals
           ? data?.goals.map((el, i) => {
               return (
-                <div key={i}>
+                <div
+                  key={i}
+                  className={
+                    isAcheived(el.start, el.end, el.calories)
+                      ? "text-green-600"
+                      : " text-red-600"
+                  }
+                >
                   {`${turn_date_to_str(el["start"] * 1000)} ${
                     el.calories
-                  } calories in ${el.end - el["start"]} minutes`}
+                  } calories in ${el.end - el["start"]} seconds`}
                 </div>
               );
             })
