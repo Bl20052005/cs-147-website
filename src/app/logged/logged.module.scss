@@ -1,3 +1,10 @@
 .container {
   background: linear-gradient(#0098df, #001faa);
 }
+
+.button {
+  background: linear-gradient(#001faa, #001b92);
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -76,11 +76,17 @@ function Logged({ user }) {
       >
         <div className="text-3xl pt-10 text-green-200">Select an option</div>
         <div className="w-full h-full flex justify-center items-center gap-10">
-          <Button onClick={() => handleOnClick("exercise")}>
+          <Button
+            onClick={() => handleOnClick("exercise")}
+            className={`${styles.button} p-10 text-white`}
+          >
             <div>Start Exercise</div>
           </Button>
 
-          <Button onClick={() => handleOnClick("stats")}>
+          <Button
+            onClick={() => handleOnClick("stats")}
+            className={`${styles.button} p-10 text-white`}
+          >
             <div>See stats</div>
           </Button>
 
@@ -99,11 +105,17 @@ function Logged({ user }) {
             </ModalContent>
           </Modal>
 
-          <Button>
-            <div onClick={() => handleOnClick("new goal")}>Set new Goal</div>
+          <Button
+            onClick={() => handleOnClick("new goal")}
+            className={`${styles.button} p-10 text-white`}
+          >
+            <div>Set new Goal</div>
           </Button>
 
-          <Button onClick={() => handleOnClick("survey")}>
+          <Button
+            onClick={() => handleOnClick("survey")}
+            className={`${styles.button} p-10 text-white`}
+          >
             <div>Start Survey</div>
           </Button>
         </div>

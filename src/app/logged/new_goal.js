@@ -13,11 +13,19 @@ function NewGoal({ onClose }) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col">
       <div>How many calories?</div>
-      <input type="number" onChange={(e) => setCal(e.target.value)} />
+      <input
+        className="border-black border-2"
+        type="number"
+        onChange={(e) => setCal(e.target.value)}
+      />
       <div>How many seconds?</div>
-      <input type="number" onChange={(e) => setSec(e.target.value)} />
+      <input
+        className="border-black border-2"
+        type="number"
+        onChange={(e) => setSec(e.target.value)}
+      />
       <Button onPress={handleClose}>Send!</Button>
     </div>
   );
