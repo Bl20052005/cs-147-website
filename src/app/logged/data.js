@@ -1,3 +1,5 @@
+import ReactAudioPlayer from "react-audio-player";
+
 const months = [
   "Jan",
   "Feb",
@@ -16,7 +18,7 @@ const months = [
 const wellness = ["Bad :(", "Meh", "Fair", "Good", "Great :)"];
 
 function Data({ data }) {
-  console.log(data);
+  // console.log(v1);
   function turn_date_to_str(date) {
     let d = new Date(date);
     return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} at ${d
@@ -41,8 +43,11 @@ function Data({ data }) {
 
   console.log(data);
 
+  const rand = Math.floor(Math.random() * 4) + 1;
+
   return (
     <div>
+      <ReactAudioPlayer src={`/v${rand}.mp3`} autoPlay={true} />
       <div>
         {data?.data
           ? data?.data.map((el, i) => {

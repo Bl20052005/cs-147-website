@@ -26,6 +26,7 @@ import NewGoal from "./new_goal";
 import Data from "./data";
 import Survey from "./survey";
 import StartExercise from "./start_exercise";
+import styles from "./logged.module.scss";
 
 function Logged({ user }) {
   const [data, setData] = useState({});
@@ -70,36 +71,42 @@ function Logged({ user }) {
   }
   return (
     <NextUIProvider>
-      <div>hello</div>
-      <div onClick={() => handleOnClick("exercise")}>
-        <div>Start Exercise</div>
-      </div>
+      <div
+        className={`${styles.container} h-[100vh] w-full flex flex-col items-center`}
+      >
+        <div className="text-3xl pt-10 text-green-200">Select an option</div>
+        <div className="w-full h-full flex justify-center items-center gap-10">
+          <Button onClick={() => handleOnClick("exercise")}>
+            <div>Start Exercise</div>
+          </Button>
 
-      <div onClick={() => handleOnClick("stats")}>
-        <div>See stats</div>
-      </div>
+          <Button onClick={() => handleOnClick("stats")}>
+            <div>See stats</div>
+          </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalBody className=" min-h-11">
-                {option == "exercise" && <StartExercise />}
-                {option == "new goal" && <NewGoal onClose={onClose} />}
-                {option == "stats" && <Data data={data} />}
-                {option == "survey" && <Survey onClose={onClose} />}
-              </ModalBody>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalBody className=" min-h-11">
+                    {option == "exercise" && <StartExercise />}
+                    {option == "new goal" && <NewGoal onClose={onClose} />}
+                    {option == "stats" && <Data data={data} />}
+                    {option == "survey" && <Survey onClose={onClose} />}
+                  </ModalBody>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
 
-      <div>
-        <div onClick={() => handleOnClick("new goal")}>Set new Goal</div>
-      </div>
+          <Button>
+            <div onClick={() => handleOnClick("new goal")}>Set new Goal</div>
+          </Button>
 
-      <div onClick={() => handleOnClick("survey")}>
-        <div>Start Survey</div>
+          <Button onClick={() => handleOnClick("survey")}>
+            <div>Start Survey</div>
+          </Button>
+        </div>
       </div>
     </NextUIProvider>
   );

@@ -14,7 +14,7 @@ import {
 import Logged from "./logged";
 
 function Page() {
-  return <Logged />;
+  return <Logged user="waldo" />;
 }
 
 export default Page;
